@@ -98,6 +98,7 @@ public class StoryDetailFragment extends android.support.v4.app.Fragment impleme
                     dbValues.add(MainActivity.storyList.get(position).getDb());
                     textview.setText("Following");
                 }
+                UtilitySingleton.getInstance(getActivity()).setStatusTypes(dbValues);
                 storyModelAdapter.notifyItemRangeChanged(0,storyModelAdapter.getItemCount());
                 break;
         }

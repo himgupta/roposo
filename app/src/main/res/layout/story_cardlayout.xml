@@ -16,7 +16,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/follow_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end">
@@ -79,6 +78,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/follow_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/author_details"
@@ -121,6 +121,23 @@
                     android:textSize="10sp" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@id/follow_layout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Created at :" />
+
+                <TextView
+                    android:id="@+id/author_created"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--" />
+            </LinearLayout>
         </RelativeLayout>
 
 

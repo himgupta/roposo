@@ -55,6 +55,7 @@ public class StoryModelAdapter extends RecyclerView.Adapter<StoryModelAdapter.Ca
             holder.authorDescription.setText(jobDetailModel.getAbout());
             holder.authorFollowers.setText(jobDetailModel.getFollowers()+"");
             holder.authorFollowing.setText(jobDetailModel.getFollowing()+"");
+            holder.authorCreated.setText(UtilitySingleton.getInstance(context).getDateFromTimestamp(jobDetailModel.getCreatedOn()));
             Glide.with(context).load(jobDetailModel.getImage()).placeholder(R.mipmap.ic_launcher).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.authorImage);
         }else{
             holder.authorLayout.setVisibility(View.GONE);
@@ -62,7 +63,7 @@ public class StoryModelAdapter extends RecyclerView.Adapter<StoryModelAdapter.Ca
             Glide.with(context).load(jobDetailModel.getSi()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.storyImage);
         }
         ArrayList<String> dbValues=UtilitySingleton.getInstance(context).getStatusTypes();
-        if(dbValues.contains(MainActivity.storyList.get(position).getDb())) {
+        if(dbValues.contains(MainActivity.storyList.get(position).getDb())||(jobDetailModel.getIsFollowing())) {
             holder.followStory.setText("Following");
         }else{
             holder.followStory.setText("Follow");
@@ -103,6 +104,7 @@ public class StoryModelAdapter extends RecyclerView.Adapter<StoryModelAdapter.Ca
         TextView authorDescription;
         TextView authorFollowers;
         TextView authorFollowing;
+        TextView authorCreated;
         ImageView authorImage;
         ImageView storyImage;
         RelativeLayout authorLayout;
@@ -119,6 +121,7 @@ public class StoryModelAdapter extends RecyclerView.Adapter<StoryModelAdapter.Ca
             authorDescription = (TextView) itemView.findViewById(R.id.author_desc);
             authorFollowers = (TextView) itemView.findViewById(R.id.author_followers);
             authorFollowing = (TextView) itemView.findViewById(R.id.author_following);
+            authorCreated = (TextView) itemView.findViewById(R.id.author_created);
             authorImage = (ImageView) itemView.findViewById(R.id.author_image);
             storyImage = (ImageView) itemView.findViewById(R.id.story_image);
             authorLayout=(RelativeLayout)itemView.findViewById(R.id.author_layout);

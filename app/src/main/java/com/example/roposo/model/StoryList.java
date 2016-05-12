@@ -16,7 +16,7 @@ public class StoryList {
         private String url;
         private String handle;
         private boolean isFollowing;
-        private float createdOn;
+        private long createdOn;
         private String description;
         private String verb;
         private String db;
@@ -195,7 +195,7 @@ public class StoryList {
          * @return
          * The createdOn
          */
-        public float getCreatedOn() {
+        public long getCreatedOn() {
             return createdOn;
         }
 
@@ -204,7 +204,7 @@ public class StoryList {
          * @param createdOn
          * The createdOn
          */
-        public void setCreatedOn(float createdOn) {
+        public void setCreatedOn(long createdOn) {
             this.createdOn = createdOn;
         }
 

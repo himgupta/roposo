@@ -16,7 +16,10 @@ import android.widget.Toast;
 
 import com.example.roposo.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public final class UtilitySingleton {
@@ -55,20 +58,6 @@ public final class UtilitySingleton {
             }
         }
     }
-
-    public void hideSoftKeyBoard(EditText editText) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-    }
-
-    public void ShowToast(String msg, Context context) {
-        if (msg != null && !msg.trim().equalsIgnoreCase("")) {
-            Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
-        }
-    }
-
-
-
 
     public void saveStringInSharedPref(String key, String value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -129,12 +118,10 @@ public final class UtilitySingleton {
         currentDateStr = "";
     }
 
-    public void setDateSelected(String currentDateStr) {
-        this.currentDateStr = currentDateStr;
-    }
-
-    public String getCurrentDateStr() {
-        return this.currentDateStr;
+    public String getDateFromTimestamp(long timestamp) {
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date(timestamp);
+        return dateFormat.format(date);
     }
 
 

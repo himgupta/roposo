@@ -76,6 +76,7 @@ public class StoryListFragment extends Fragment implements StoryModelAdapter.Car
                     dbValues.add(MainActivity.storyList.get(position).getDb());
                     textview.setText("Following");
                 }
+                UtilitySingleton.getInstance(getActivity()).setStatusTypes(dbValues);
                 textview.setBackgroundResource(R.drawable.oval);
                 storyModelAdapter.notifyItemRangeChanged(0,storyModelAdapter.getItemCount());
                 break;
