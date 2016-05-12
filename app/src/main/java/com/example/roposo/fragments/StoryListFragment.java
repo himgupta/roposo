@@ -77,6 +77,7 @@ public class StoryListFragment extends Fragment implements StoryModelAdapter.Car
                     textview.setText("Following");
                 }
                 textview.setBackgroundResource(R.drawable.oval);
+                storyModelAdapter.notifyItemRangeChanged(0,storyModelAdapter.getItemCount());
                 break;
         }
     }
