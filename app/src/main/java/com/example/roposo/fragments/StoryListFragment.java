@@ -69,11 +69,13 @@ public class StoryListFragment extends Fragment implements StoryModelAdapter.Car
             case R.id.follow_status:
                 TextView textview = (TextView) view;
                 ArrayList<String> dbValues = UtilitySingleton.getInstance(getActivity()).getStatusTypes();
-                if (dbValues.contains(MainActivity.storyList.get(position).getDb())) {
-                    dbValues.remove(MainActivity.storyList.get(position).getDb());
+                if (dbValues.contains(datalist.get(position).getDb())||dbValues.contains(datalist.get(position).getId())) {
+                    dbValues.remove(datalist.get(position).getDb());
+                    dbValues.remove(datalist.get(position).getId());
                     textview.setText("Follow");
                 } else {
-                    dbValues.add(MainActivity.storyList.get(position).getDb());
+                    dbValues.add(datalist.get(position).getDb());
+                    dbValues.add(datalist.get(position).getId());
                     textview.setText("Following");
                 }
                 UtilitySingleton.getInstance(getActivity()).setStatusTypes(dbValues);

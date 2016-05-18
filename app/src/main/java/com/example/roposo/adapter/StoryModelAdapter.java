@@ -63,7 +63,7 @@ public class StoryModelAdapter extends RecyclerView.Adapter<StoryModelAdapter.Ca
             Glide.with(context).load(jobDetailModel.getSi()).diskCacheStrategy(DiskCacheStrategy.ALL).into(holder.storyImage);
         }
         ArrayList<String> dbValues=UtilitySingleton.getInstance(context).getStatusTypes();
-        if(dbValues.contains(MainActivity.storyList.get(position).getDb())||(jobDetailModel.getIsFollowing())) {
+        if(dbValues.contains(jobDetailModel.getDb())||dbValues.contains(jobDetailModel.getId())) {
             holder.followStory.setText("Following");
         }else{
             holder.followStory.setText("Follow");
